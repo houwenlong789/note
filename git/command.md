@@ -27,6 +27,16 @@ git merge dev
 
 >Create a new repository
 
+## 临时保存命令
+1. 临时保存当前没有提交的内容
+> git stash
+2. 找回临时保存
+ > git stash pop
+3. 查看临时保存内容
+> git stash --list
+
+[引用]()
+
 ```
 git clone http://git.ztosys.com/houwenlong/test.git
 cd test
