@@ -4,13 +4,20 @@
 # 配置Java jdk
 
 ```
-vi  ~/.bash_profile
+vi  ~/.bashrc 或者 vi /etc/profile
 
-export JAVA_HOME=~/java
-export PATH=/home/baseuser/java/bin:/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/home/baseuser/java/bin:/home/baseuser/java/jre/bin:/root/bin
-export CLASSPATH=.:/home/baseuser/java/lib/dt.jar:/home/baseuser/java/lib/tools.jar
+# java settings
 
-source ~/.bash_profile
+export JAVA_HOME=/home/java/jdk1.8.0_211
+
+export JRE_HOME=${JAVA_HOME}/jre
+
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+
+export PATH=${JAVA_HOME}/bin:$PATH
+
+
+source ~/.bash_profile 或者/etc/profile
 
 ```
 
