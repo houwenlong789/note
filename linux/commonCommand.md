@@ -2,7 +2,7 @@
 ## 清屏 clear
 
 # 配置Java jdk
-
+首先官网下载安装包，并解压
 ```
 vi  ~/.bashrc 或者 vi /etc/profile
 
@@ -118,4 +118,7 @@ kill -9 进程号
 
 “/”代表根目录、“..”代表上一级目录、“~”代表HOME目录、“-”代表前一目录。
 
-## SonarQube
+### Vi
+
+> search  /要搜索的字符
+> 按Enter键搜索，按N查找下一个
