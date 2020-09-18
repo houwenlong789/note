@@ -1,5 +1,6 @@
 ```java
 
+
 import com.intellij.database.model.DasTable
 import com.intellij.database.model.ObjectKind
 import com.intellij.database.util.Case
@@ -35,13 +36,16 @@ def getPackageName(dir) {
 }
 
 def generate(out, className,  table) {
+  modelPackage = packageName.replaceAll("repository","model")
 
 
   out.println "package $packageName"+";"
   out.println ""
+  out.println "import "+modelPackage+".$className;"
   out.println "import org.springframework.data.jpa.repository.JpaRepository;"
   out.println "import org.springframework.stereotype.Repository;"
-
+  out.println "import org.springframework.data.jpa.repository.JpaSpecificationExecutor;"
+  out.println "import org.springframework.data.repository.PagingAndSortingRepository;"
 
   out.println ""
   out.println "/**\n" +
@@ -51,7 +55,7 @@ def generate(out, className,  table) {
           " */"
   out.println ""
   out.println "@Repository"
-  out.println "public interface $className"+ "Repository  extends JpaRepository<$className, Integer> {"
+  out.println "public interface $className"+ "Repository  extends JpaRepository<$className, Integer> , JpaSpecificationExecutor<$className>, PagingAndSortingRepository<$className, Integer> {"
   out.println "}"
   }
 
@@ -70,6 +74,7 @@ def javaName(str, capitalize) {
           .replaceAll(/[^\p{javaJavaIdentifierPart}[_]]/, "_")
   capitalize || s.length() == 1 ? s : Case.LOWER.apply(s[0]) + s[1..-1]
 }
+
 
 
 ```
